@@ -28,7 +28,6 @@ func WriteFile(){
 	w := bufio.NewWriter(f)
 	w.Write([]byte("Write buffer by NewWriter - Write\n"))
 	w.WriteString("Write buffer by NewWriter - WriteString\n")
-	//w.WriteRune("Œ“ «÷ÏŒ∞Ω¯") /*support UTF-8*/
 	w.Flush()
 	w.WriteString("write file after writer flushed")
 

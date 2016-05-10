@@ -1,0 +1,4 @@
+Write buffer by File Writer - WriteString
+Write buffer by File Writer - Write
+Write buffer by NewWriter - Write
+Write buffer by NewWriter - WriteString
