@@ -20,6 +20,11 @@ func main() {
 	for {
 		fmt.Print(">:")	
 		fmt.Scanf("%s", &buffer)
+		
+		if buffer == "quit" {
+			os.Exit(1)
+		}
+
 		conn.Write(buffer)
 		time.Sleep(100 * time.Millisecond)
 	}

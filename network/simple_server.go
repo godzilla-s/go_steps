@@ -10,13 +10,19 @@ func handleClient(c net.Conn) {
 	defer c.Close()
 
 	buffer := make([]byte, 256)
-	len err := c.Read(buffer)
-	if err != nil {
-		fmt.Println("Read err: ", err)
-		return
-	}
+
+	for {	
+		len, err := c.Read(buffer)
+		if err != nil {
+			fmt.Println("Read err: ", err)
+			return
+		}
 	
-	fmt.Println("Read: ", string(buffer))
+		if len == 0 {
+			return 
+		}
+		fmt.Println("Read: ", string(buffer), len)
+	}
 }
 
 func main() {
@@ -34,6 +40,8 @@ func main() {
 			fmt.Println("Accept err: ", err)
 			os.Exit(1)
 		}
+		
+		fmt.Println("New Client")
 
 		go handleClient(cli)
 	}
