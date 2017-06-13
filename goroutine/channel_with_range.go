@@ -15,6 +15,8 @@ func send(msg chan string) {
 func main() {
 	msg := make(chan string)
 	go send(msg)
+
+	//通过 range 来等待接受
 	for s := range msg {
 		fmt.Println(s)
 	}
