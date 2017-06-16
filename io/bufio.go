@@ -1,4 +1,4 @@
-/* bufio 包的使用 */
+/* bufio 包实现有缓冲的IO读写 */
 package main
 
 import (
@@ -9,4 +9,6 @@ import (
 func main() {
 	readbuf := strings.NewReader("Hello, Dear World")
 	reader := bufio.NewReader(readbuf)
+
+	
 }
