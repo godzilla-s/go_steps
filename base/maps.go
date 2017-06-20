@@ -7,6 +7,7 @@ import (
 
 
 func main() {
+	/* 使用make定义 */
 	var emplyee = make(map[int]string)
 	
 	emplyee[1] = "Matt"
@@ -20,4 +21,20 @@ func main() {
 	cars["劳斯莱斯"] = 120.5
 	cars["奥迪"] = 48.6
 	fmt.Println(cars)
+
+	/* map 迭代 */
+	for key, val := range cars {
+		fmt.Printf("车名: %s, 价格: %f\n", key, val)
+	}
+
+	/* 未确定值类型 */
+	var xx  = map[string]interface{} {
+		"name" : "马克保罗",
+		"age" : 35,
+		"salary" : 25000.00,
+		"gender" : "male",
+	}
+	xx["living"] = "Shanghai"
+	fmt.Println(xx)
+
 }
