@@ -1,11 +1,13 @@
+//这里使用的是官方的JSON, https://github.com/bitly/go-simplejson第三方JSON这个包推荐用
 package main
 
 import (
 	"fmt"
 	"encoding/json"
-	_"os"
+	"os"
 )
 
+//结构体转JSON时，需要定义JSON中相应的标签
 type Config struct {
 	Host		string		`json:"host"`
 	Port		int			`json:"port"`
@@ -36,5 +38,23 @@ func main() {
 		fmt.Println("Struct to JSON: ", string(bs))
 	}
 
+	config := Config {
+		Host: "192.168.92.130",
+		Port: 8201,
+		FilePath: "/home/to/path",
+		Log: "TLOG.date.log",
+	}	
+
+	//转化JSON
+	bs, _:= json.Marshal(config)
+	os.Stdout.Write(bs) //输出
+	println()
+
+	a := make(map[string]interface{})
+	a["CarName"] = "Audi A6L"
+	a["Price"] = 86.7
+	a["Produce"] = "German"
 	
+	buf, _ := json.Marshal(a)
+	fmt.Println(string(buf))
 }
