@@ -11,6 +11,7 @@ type Test struct {
 	buf		string
 }
 
+//struct 类型的channel
 func create(name string) chan Test {
 	c := make(chan Test)
 	go func() {

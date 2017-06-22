@@ -16,7 +16,7 @@ type Chinese struct {
 
 type American struct {
 	Person
-	lastName    string    /* 不继承 */
+	lastName    string    /* 会被覆盖 */
 	religion	string
 }
 
