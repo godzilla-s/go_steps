@@ -5,6 +5,7 @@ import (
 	"bufio"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -38,5 +39,27 @@ func main() {
 	for scanner2.Scan() {
 		line := scanner2.Text()
 		fmt.Println(line)
+	}
+
+	//使用os.Stdio: 输入数据
+	scanner3 := bufio.NewScanner(os.Stdin)
+	for scanner3.Scan() {
+		line := scanner3.Text()
+		if line == "quit" {
+			break
+		}
+		fmt.Println(scanner3.Text(), "\t[type 'quit' 退出]")
+	}
+
+	if err := scanner3.Err(); err != nil {
+		fmt.Fprintln(os.Stderr, "reading standard input:", err)
+	}
+
+	//切分单词
+	const text = "When sun is rising, new hope is around us, birds sings, people begin working"
+	scanner4 := bufio.NewScanner(strings.NewReader(text))
+	scanner4.Split(bufio.ScanWords)
+	for scanner4.Scan() {
+		fmt.Println(scanner4.Text())
 	}
 }
