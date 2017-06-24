@@ -10,6 +10,10 @@ func printmsg(v interface{}) {
 	fmt.Println(v)
 }
 
+func printmultimsg(v ...interface{}) {
+	fmt.Println(v)
+}
+
 func main() {
 	printmsg(12)
 	printmsg(34.56)
@@ -21,4 +25,6 @@ func main() {
 		"Weight": "12.3Kg",
 	}
 	printmsg(a)
+
+	printmultimsg(23, 34.12, "font color", a)
 }

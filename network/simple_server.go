@@ -4,10 +4,13 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"io"
 )
 
 func handleClient(c net.Conn) {
 	defer c.Close()
+
+	io.WriteString(c, "Helle, Connection is on:")
 
 	buffer := make([]byte, 256)
 

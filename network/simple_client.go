@@ -17,15 +17,20 @@ func main() {
 	defer conn.Close()
 
 	buffer := make([]byte, 256)
+	conn.Read(buffer)
+
+	fmt.Println(string(buffer))
+
 	for {
 		fmt.Print(">:")	
 		fmt.Scanf("%s", &buffer)
 		
-		if buffer == "quit" {
+		if string(buffer) == "quit" {
 			os.Exit(1)
 		}
 
 		conn.Write(buffer)
 		time.Sleep(100 * time.Millisecond)
 	}
+	
 }
