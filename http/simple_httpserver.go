@@ -1,36 +1,32 @@
-//简单的http服务
-
 package main
 
 import (
 	"fmt"
 	"net/http"
-	"strings"
-	"os"
+	"io"
 )
 
+/* 下面用三种方法处理返回数据 */
+
 func index(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()       //解析参数, 默认是不会解析的
-	fmt.Println(r.Form)
-	fmt.Println("path", r.URL.Path)
-	fmt.Println("scheme", r.URL.Scheme)
-	fmt.Println(r.Form["url_long"])
-	for k, v := range r.Form {
-		fmt.Println("key:", k)
-		fmt.Println("val:", strings.Join(v, ""))
-	}
-	fmt.Fprintf(w, "Hello astaxie!") //返回给客户端
+	w.Write([]byte("index tempalte running"))
+}
+
+func query(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Fruit, Airplane, Cars, Ships, Flowers")
+}
+
+func register(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Register OK")
 }
 
 func main() {
-	//处理虚拟文件
 	http.HandleFunc("/", index)
-	//创建监听
+	http.HandleFunc("/query", query)
+	http.HandleFunc("/reg", register)
+
 	err := http.ListenAndServe(":8001", nil)
 	if err != nil {
 		fmt.Println(err)
-		os.Exit(1)
 	}
 }
-
-

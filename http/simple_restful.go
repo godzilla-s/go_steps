@@ -8,6 +8,7 @@ import (
 
 type myHandle int
 
+/* 请求图片 */
 func (handle myHandle) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	res.Header().Set("Content-Type", "text/html; charset=utf-8")
 	switch req.URL.Path {
