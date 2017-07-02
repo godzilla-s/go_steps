@@ -13,6 +13,7 @@ func main() {
 	pageSize := os.Getpagesize()
 	fmt.Println("PageSize: ", pageSize)
 
+	//系统环境变量
 	env := os.Environ()
 	fmt.Println("OS Env: ", env)
 

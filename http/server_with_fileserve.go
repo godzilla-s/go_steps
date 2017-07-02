@@ -8,7 +8,7 @@ import (
 
 func main() {
 	//
-	http.Handle("/", http.FileServer(http.Dir("/home/hdp")))
+	http.Handle("/", http.FileServer(http.Dir("/home/develop")))
 
 	err := http.ListenAndServe(":8001", nil)
     if err != nil {
