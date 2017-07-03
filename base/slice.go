@@ -48,6 +48,7 @@ func main() {
 	//f[3] = "勇往直前" //下标越界
 	f = append(f, "勇往直前")
 	fmt.Printf("addr: %p, %s\n", &f, f)
+
 	//使用append可以继续添加, 而cap也会自动增加, 
 	//其增加有规律
 	f = append(f, "前赴后继")
@@ -55,6 +56,7 @@ func main() {
 	f = append(f, "再加一个")
 	fmt.Printf("addr: %p, %s\n", &f, f)
 	fmt.Println("afper append: length-", len(f), "cap-", cap(f))
+
 	//slice 合并
 	h := []int{1, 2, 3, 4}
 	g := []int{5, 6, 7, 8}
@@ -67,6 +69,12 @@ func main() {
 	fmt.Println("能否添加字符串:", h)
 	*/
 
+	/* 使用切片 */
 	h = append(h[:5], g[2:]...)
 	fmt.Println(h)
+
+	/* 多个数据append到数组中 */
+	var j []int
+	j = append(j, 10, 20, 30, 40, 50, 60, 70)
+	fmt.Println("Append J: ", j)
 }
