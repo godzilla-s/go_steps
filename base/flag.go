@@ -3,24 +3,20 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"flag"
-	"time"
 )
 
 func main() {
-	//os.Args 命令行所有的参数
-	args := os.Args 
+	a := flag.Int("num", 100, "your number")
+	b := flag.String("name", "default", "your name")
+	c := flag.Duration("du", 100, "your duration")
 
-	fmt.Println(args)
-	fmt.Println(args[1:]) //切片: 实际参数
-
-	var buffer = flag.String("data", "type string", "This is New Message from Nokia")
-	fmt.Println(buffer)
-
-	var period = flag.Duration("period", 1*time.Second, "sleep period")
 	flag.Parse()
-	fmt.Printf("Sleeping for %v...", *period)
-	time.Sleep(*period)
-	fmt.Println()
+	other := flag.Args()
+
+	fmt.Println(*a)
+	fmt.Println(*b)
+	fmt.Println(*c)
+	fmt.Println(other)
+	fmt.Println(flag.Arg(2))
 }

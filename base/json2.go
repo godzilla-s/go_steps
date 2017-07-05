@@ -15,6 +15,16 @@ type Config struct {
 	Log			string		`json:"log"`
 }
 
+type UserInfo struct {
+	userid		int			`json:"userId"`
+	username	string		`json:"userName"`
+	favour		[]string	`json:"favour"`
+	item		struct {
+					name	string		`json:"Name"`
+					attr	string		`json:"Attr"`
+				} `json:"Item"`
+}
+
 func main() {
 	js := `{"host":"192.168.1.46", "port":8001, "file_path":"/home/hdp/log", "log": "Test"}`
 	
@@ -58,3 +68,4 @@ func main() {
 	buf, _ := json.Marshal(a)
 	fmt.Println(string(buf))
 }
+

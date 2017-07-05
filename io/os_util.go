@@ -18,4 +18,13 @@ func main() {
 	fmt.Println("OS Env: ", env)
 
 	fmt.Printf("uid:%d, euid:%d, gid:%d egid:%d\n", os.Getuid(), os.Geteuid(), os.Getgid(), os.Getegid())
+
+	//获取当前目录
+	dir, err := os.Getwd()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println("dir:", dir)
 }
