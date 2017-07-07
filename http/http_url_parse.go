@@ -10,6 +10,7 @@ func parse(w http.ResponseWriter, r *http.Request) {
 	//解析url参数
 	v := r.FormValue("q")	
 	fmt.Printf("val: %s\n", v)
+	fmt.Println("Referer: ", r.Referer())
 }
 
 func main() {
