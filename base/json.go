@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"encoding/json"
 )
 
@@ -28,6 +29,22 @@ func main() {
 	js, _ := json.Marshal(stu)
 	fmt.Println("Json:", js)
 
+	//读取json文件数据
+	file, err := os.Open("test.json")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	decoder := json.NewDecoder(file)
+	fmt.Println("decoder: ", decoder)
+	
+	err = decoder.Decode("Works")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	
 }
 
 
