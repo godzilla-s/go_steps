@@ -18,11 +18,15 @@ func handleClient(c net.Conn) {
 	for {	
 		len, err := c.Read(buffer)
 		if err != nil {
+			if err == io.EOF {
+				continue
+			}
 			fmt.Println("Read err: ", err)
 			return
 		}
 	
 		if len == 0 {
+			fmt.Printf("client %v close\n", c.RemoteAddr())
 			return 
 		}
 		fmt.Println("Read: ", string(buffer), len)
