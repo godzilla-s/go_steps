@@ -5,8 +5,10 @@ Golang 笔记
 -----------------
 * func append(slice []Type, elems ...Type) []Type<br>
 	如：将数据添加的slice里面
+```go
 	var a []byte
 	a = append(a, 'A')
+```
 * func cap(v Type) int
 * func close(c chan<- Type)
 * func complex(r, i FloatType) ComplexType
