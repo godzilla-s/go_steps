@@ -23,15 +23,15 @@ Golang 笔记
 		
 ### Golang创建项目
 ----------------
-	example: 创建一个project<br>
-	新建 project 文件夹<br>
-	并在其下面新建三个文件夹, 如下: <br>
-		project
-			|--bin
-			|--pkg
-			|--src
+example: 创建一个project<br>
+新建 project 文件夹<br>
+并在其下面新建三个文件夹, 如下: <br>
+> project
+>> |--bin <br>
+>> |--pkg <br>
+>> |--src <br>
 
-	将project所在目录添加到GOPATH环境变量中去<br>
-		export $GOPATH=....
+将project所在目录添加到GOPATH环境变量中去<br>
+	export $GOPATH=....
 
-	新的package包中的对外函数API, 首字母需大写<br
+新的package包中的对外函数API, 首字母需大写<br
