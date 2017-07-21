@@ -20,7 +20,8 @@ Golang 笔记
 * func real(c ComplexType) FloatType
 * func recover() interface{}
 
-		
+参考： http://lib.csdn.net/article/go/34354
+
 ### Golang创建项目
 ----------------
 example: 创建一个project<br>
