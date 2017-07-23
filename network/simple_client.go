@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net"
 	"os"
-	"time"
+	_"time"
 )
 
 func main() {
@@ -26,11 +26,12 @@ func main() {
 		fmt.Scanf("%s", &buffer)
 		
 		if string(buffer) == "quit" {
+			conn.Close()
 			os.Exit(1)
 		}
 
 		conn.Write(buffer)
-		time.Sleep(100 * time.Millisecond)
+		//time.Sleep(100 * time.Millisecond)
 	}
 	
 }

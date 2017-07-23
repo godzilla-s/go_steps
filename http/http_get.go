@@ -10,7 +10,7 @@ import (
 
 func main() {
 	//resp, err := http.Get("http://www.01happy.com/demo/accept.php?id=1")
-	resp, err := http.Get("http://www.baidu.com.cn")
+	resp, err := http.Get("http://www.ltaaa.com/")
 	if err != nil {
 		fmt.Println(err)
 		return
