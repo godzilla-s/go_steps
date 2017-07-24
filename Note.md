@@ -1,5 +1,5 @@
-Golang 笔记
-==========================================
+# Golang 笔记
+==========================
 
 ### Golang内置函数
 -----------------
@@ -10,8 +10,14 @@ Golang 笔记
 	a = append(a, 'A')
 ```
 * func cap(v Type) int
+```go
+	var a []byte
+	fmt.Println(cap(a))
+```
 * func close(c chan<- Type)
+	关闭channel管道
 * func complex(r, i FloatType) ComplexType
+	复数
 * func copy(dst, src []Type) int
 * func delete(m map[Type]Type1, key Type)
 * func imag(c ComplexType) FloatType
@@ -37,4 +43,4 @@ example: 创建一个project<br>
 将project所在目录添加到GOPATH环境变量中去<br>
 	export $GOPATH=....
 
-新的package包中的对外函数API, 首字母需大写<br
+新的package包中的对外函数API, 首字母需大写<br>
