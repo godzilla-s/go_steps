@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net"
+	"github.com/gorilla/websocket"
 )
 
 type Client struct {
@@ -11,13 +12,9 @@ type Client struct {
 	send	chan []byte
 }
 
-func ClientNew(conn net.Conn) *Client {
-	cli := Client {
-		conn: conn,
-		send: make(chan []byte),
-	}
-	
-	return cli
+var upgrader = websocket.Upgrader{
+    ReadBufferSize:  1024,
+    WriteBufferSize: 1024,
 }
 
 func (cli *Client) handleRead() {
@@ -56,7 +53,6 @@ func (cli *Client) handleWrite() {
 }
 
 func serveChat(hub *Hub, w http.ResponseWriter, r *http.Request) {
-	cli := &Client{hub: hub, conn: , send: make(chan []byte, 256)}
 
 	cli.hub.register <- cli
 	
