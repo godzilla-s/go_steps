@@ -29,17 +29,20 @@ func (h *Hub) Run() {
 				h.clients[client] = true
 			case client := <- h.unregister:
 				log.Println("Client logout")
-				delete(h.clients, client)
-				close(client.send)
+				if _, exist := h.clients[client]; exist {
+					delete(h.clients, client)
+					close(client.send)
+				}
 			case message := <- h.broadcast:
 				for cli := range h.clients {
 					select {
 						case cli.send <- message:
 						default:
-							delete(h.client, cli)
+							delete(h.clients, cli)
 							close(cli.send) 
 					}
 				}
 		}
 	}
 }
+

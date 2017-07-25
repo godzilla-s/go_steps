@@ -7,9 +7,8 @@ import (
 
 var hub = NewHub()
 
-var proxy = &Proxy{backAddr: ":9001",}
-
 func index(w http.ResponseWriter, r *http.Request) {
+	log.Println("index request")
 	if r.Method != "GET" {
 		log.Println("Not Support method: ", r.Method)
 		return 
@@ -23,9 +22,7 @@ func chatServer(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	hub.Run()
-
-	go proxy.Run()
+	go hub.Run()
 
 	http.HandleFunc("/", index)	
 	http.HandleFunc("/chat", chatServer)
