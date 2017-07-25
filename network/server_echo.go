@@ -38,12 +38,6 @@ func main() {
 			log.Fatal(err)
 		}
 
-		/*		
-		//返回客户端，客户端可以通过telnet localhost port 连接
-		io.Copy(cli, cli)
-		cli.Close()
-		*/
-
 		go handleConn(cli)
 	}
 }

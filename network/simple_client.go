@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	conn, err := net.Dial("tcp", ":8010")
+	conn, err := net.Dial("tcp", ":8001")
 	if err != nil {
 		fmt.Println("Dail err: ", err)
 		os.Exit(1)
