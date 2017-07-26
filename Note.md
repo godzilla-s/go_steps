@@ -15,11 +15,18 @@
 	fmt.Println(cap(a))
 ```
 * func close(c chan<- Type)
-	关闭channel管道
+	<br>关闭channel管道
 * func complex(r, i FloatType) ComplexType
-	复数
+	<br>复数
 * func copy(dst, src []Type) int
+	<br>拷贝	
 * func delete(m map[Type]Type1, key Type)
+	<br>删除map中的数据
+```go
+	a := make(map[string]string)
+	a["Id"] = "123456"
+	delete(a, "Id")
+```
 * func imag(c ComplexType) FloatType
 * func len(v Type) int
 * func make(Type, size IntegerType) Type
