@@ -1,3 +1,4 @@
+//类型判断
 package main
 
 import (

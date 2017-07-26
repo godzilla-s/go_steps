@@ -33,7 +33,7 @@ func main() {
 
 	fmt.Println(any)
 
-	//map中value值未确定类型
+	//map中value值为interface{}类型
 	a := make(map[string]interface{})
 	a["Action"] = "Beat"
 	a["Hurt"] = true
