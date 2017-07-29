@@ -1,7 +1,7 @@
 # Golang 笔记
 ==========================
 
-### Golang内置函数
+### Go 内置函数
 -----------------
 * func append(slice []Type, elems ...Type) []Type<br>
 	如：将数据添加的slice里面
@@ -37,7 +37,7 @@
 
 参考： http://lib.csdn.net/article/go/34354
 
-### Golang创建项目
+### Go 创建项目
 ----------------
 example: 创建一个project<br>
 新建 project 文件夹<br>
@@ -51,3 +51,15 @@ example: 创建一个project<br>
 	export $GOPATH=....
 
 新的package包中的对外函数API, 首字母需大写<br>
+
+### Go 命令
+-----------------
+go run： 可以编译并运行命令源码文件
+go test： 用于对Go语言编写的程序进行测试
+go build：用于编译我们指定的源码文件或代码包以及它们的依赖包<br>
+go install：于编译并安装指定的代码包及它们的依赖包<br>
+go get：从互联网上下载或更新指定的代码包及其依赖包，并对它们进行编译和安装<br>
+go clean: 删除掉执行其它命令时产生的一些文件和目录
+go list: 列出指定的代码包的信息
+
+
