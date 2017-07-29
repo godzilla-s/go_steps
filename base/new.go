@@ -21,6 +21,7 @@ func main() {
 	fmt.Printf("e1 type:%T, value: %v\n", e1, e1)
 	fmt.Printf("e1 name: %s, e1 job: %s, e1 salary: %d\n", e1.name, e1.job, e1.salary)
 
+	//new int类型
 	var a *int = new(int)
 	*a = 20
 	fmt.Printf("a: type: %T, %v, %d\n", a, a, *a)
