@@ -63,3 +63,4 @@ go clean: 删除掉执行其它命令时产生的一些文件和目录<br>
 go list: 列出指定的代码包的信息<br>
 
 
+参考: http://wiki.jikexueyuan.com/project/go-command-tutorial/
