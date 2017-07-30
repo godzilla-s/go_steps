@@ -16,12 +16,10 @@ func main() {
 
 	defer conn.Close()
 
-	buffer := make([]byte, 256)
-	conn.Read(buffer)
-
-	fmt.Println(string(buffer))
+	buffer := make([]byte, 200)
 
 	for {
+		buffer = buffer[:]
 		fmt.Print(">:")	
 		fmt.Scanf("%s", &buffer)
 		

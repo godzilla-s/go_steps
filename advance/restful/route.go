@@ -16,6 +16,8 @@ type Route struct {
 
 type Routes []Route
 
+
+//路由设置
 var routes = Routes {
 	Route{
 		"index",

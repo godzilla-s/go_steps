@@ -4,9 +4,11 @@ package main
 
 import (
 	"net"
+	"fmt"
 	"log"
 	"time"
 	"bufio"
+	"io"
 )
 
 func handle_connect(c net.Conn) {
@@ -24,6 +26,29 @@ func handle_connect(c net.Conn) {
 	}
 }
 
+func handle_connect2(c net.Conn) {
+	defer c.Close()
+
+	buf := make([]byte, 200)
+	for {
+		//设置读取数据超时时限为10s
+		err := c.SetReadDeadline(time.Now().Add(10 * time.Second))
+    	if err != nil {
+        	log.Println("设置读取超时失败")
+    	}
+		_, err = c.Read(buf)
+		if err != nil{
+			if err == io.EOF {
+				fmt.Println("client close")
+				return 
+			}
+			log.Println("time out", err)
+			continue
+		}
+		fmt.Println("Read: ", string(buf))
+	}
+}
+
 func main() {
 	lsn, err := net.Listen("tcp", ":8001")
 	if err != nil {
@@ -38,6 +63,7 @@ func main() {
 			log.Fatal(err)
 			continue
 		}
-		go handle_connect(c)
+		log.Println("New Client Connect")
+		go handle_connect2(c)
 	}
 }
