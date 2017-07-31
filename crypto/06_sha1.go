@@ -7,6 +7,8 @@ import (
 
 func main() {
 	data := []byte("abcdefghijklmnopqrstuvwxyz")
-	fmt.Println(sha1.Sum(data))
-	fmt.Println("New Sha1: ", sha1.New())
+	hv := sha1.New()
+	hv.Write(data)
+	fmt.Printf("SHA1: %x\n", hv.Sum(nil))
+	fmt.Printf("OrgData: %s\n", data)
 }
