@@ -7,7 +7,7 @@ import (
 
 func time_format(level int) {
   var format string
-  swicth level {
+  switch level {
     case 1:
       format = "2006"
     case 2:
