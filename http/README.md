@@ -1,0 +1,2 @@
+1. http协议1.1后默认是长连接，如果一个client使用http1.1协议，但又不希望使用长链接，则需要在header中指明connection的值为close；如果server方也不想支持长链接，则在response中也需要明确说明connection的值为close。
+
