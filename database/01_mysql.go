@@ -76,7 +76,10 @@ func db_query(db *sql.DB) {
 }
 
 func main() {
+	// 本地连接数据库
 	db, err := sql.Open("mysql", "root:root123456@/mybase?charset=utf8&loc=Local")
+	// 连接外网数据库
+	//db, err := sql.Open("mysql", "root:root123456@tcp(127.0.0.1:3306)/mybase?charset=utf8")
 	if err != nil {
 		log.Fatal("Open MySQL fail:", err)
 	}
