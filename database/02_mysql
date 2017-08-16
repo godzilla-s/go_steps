@@ -1,0 +1,48 @@
+// 连接池
+
+package main
+
+import (
+  "log"
+  "database/sql"
+  _ "github.com/go-sql-driver/mysql"
+)
+
+var db *sql.DB
+
+var (
+  dbname = "root"
+  dbpwd = "root123456"
+  dbuser = "mybase"
+  dbip = "127.0.0.1"
+)
+
+func init() {
+  conninfo := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8", dbname, dbpwd, dbip, dbuser)
+  dbconn, err := sql.Open("mysql", conninfo)
+  dbconn.SetMaxOpenConns(1000)
+  dbconn.SetMaxIldeConns(500)
+  dbconn.Ping()
+  
+  db = dbconn
+}
+
+func db_query1() {
+
+}
+
+func db_query2() {
+
+}
+
+func db_insert() {
+
+}
+
+func db_update() {
+
+}
+
+func main() {
+  return 
+}
