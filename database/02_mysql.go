@@ -21,6 +21,11 @@ func init() {
   conninfo := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8", dbname, dbpwd, dbip, dbuser)
   dbconn, err := sql.Open("mysql", conninfo)
   dbconn.SetMaxOpenConns(1000)
+  
+  // 如果保持一个空闲链接太长，则会出现出现网络连接的问题，类似下面错误： 
+	// unexpected EOF
+	// write tcp 192.168.3.90:3306: broken pipe
+  // 可以试着：db.SetMaxIdleConns(0)
   dbconn.SetMaxIldeConns(500)
   dbconn.Ping()
   
