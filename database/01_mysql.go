@@ -10,6 +10,12 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+// type MyTable struct {
+//  	id 	int
+//	name	string
+//	email	string
+//}
+
 // insert database
 func db_insert(db *sql.DB) {
 	sql_01 := "INSERT INTO mytable(id, name, email) values(?, ?, ?)"
@@ -47,23 +53,8 @@ func db_update(db *sql.DB) {
 	}
 }
 
-func main() {
-	db, err := sql.Open("mysql", "root:root123456@/mybase?charset=utf8&loc=Local")
-	if err != nil {
-		log.Fatal("Open MySQL fail:", err)
-	}
-	defer db.Close()
-	log.Println("Open MySQL OK")
-
-	if err := db.Ping(); err != nil {
-		log.Fatal("Ping err:", err)
-	}
-
-	db_insert(db)
-
-	db_update(db)
-
-	//query
+//query
+func db_query(db *sql.DB) {
 	sql_02 := "SELECT id, name, email FROM mytable"
 	result, err := db.Query(sql_02)
 	if err != nil {
@@ -82,4 +73,23 @@ func main() {
 
 		log.Println("Id:", id, " Name:", name, "Email:", email)
 	}
+}
+
+func main() {
+	db, err := sql.Open("mysql", "root:root123456@/mybase?charset=utf8&loc=Local")
+	if err != nil {
+		log.Fatal("Open MySQL fail:", err)
+	}
+	defer db.Close()
+	log.Println("Open MySQL OK")
+
+	if err := db.Ping(); err != nil {
+		log.Fatal("Ping err:", err)
+	}
+
+	db_insert(db)
+
+	db_update(db)
+
+	db_query(db)
 }
