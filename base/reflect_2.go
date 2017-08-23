@@ -22,7 +22,7 @@ type Data struct {
     
     fmt.Println(v_d1.Kind(), v_d2.Kind())
     
-    
+    fmt.Println(t_d1.Kind() == reflect.Ptr, t_d2.Kind() == reflect.Ptr)
 }
 func main() {
   d1 := Data {
