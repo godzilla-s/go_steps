@@ -28,6 +28,8 @@ func attr(d interface{}) {
 		fmt.Println("Elem: ", t_d.Elem()) //回该类型的元素类型，如果该类型的Kind不是Array、Chan、Map、Ptr或Slice，会panic
 	}
 	
+	fmt.Println("Value Type: ", v_d.Type())
+	
 }
 
 func main() {
