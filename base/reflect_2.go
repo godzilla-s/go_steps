@@ -1,47 +1,41 @@
 package main
 
 import (
-  "fmt"
-  "reflect"
+	"fmt"
+	"reflect"
 )
 
 type Data struct {
-  a   int
-  b   string
-  c   bool
-)
-
-  func attr(d1 interface{}, d2 interface{}){
-    // Value 类型
-    v_d1 := reflect.ValueOf(d1)
-    v_d2 := reflect.ValueOf(d2)
-    
-    fmt.Println(v_d1, v_d2)
-    
-    // Type 类型
-    t_d1 := reflect.TypeOf(d1)
-    t_d2 := reflect.TypeOf(d2)
-    
-    fmt.Println(t_d1.String(), t_d2.String()) //该类型的值需要多少字节, ~~unsafe.Sizeof
-    
-    fmt.Println(t_d1, t_d2)
-    
-    fmt.Println(v_d1.Kind(), v_d2.Kind())
-    
-    fmt.Println(t_d1.Kind() == reflect.Ptr, t_d2.Kind() == reflect.Ptr)
+	a 		int 
+	b 		string 
+	c		bool
 }
+func attr(d interface{}) {
+	v_d := reflect.ValueOf(d)
+	fmt.Println("ValueOf: ", v_d)
+
+	t_d := reflect.TypeOf(d)
+	fmt.Println("TypeOf: ", t_d)
+
+	fmt.Println("Kind: ", t_d.Kind())
+	fmt.Println("Name: ", t_d.Name())
+	fmt.Println("String: ", t_d.String()) //返回类型的字符串表示
+	fmt.Println("Size: ", t_d.Size()) //类型的值需要多少字节
+	fmt.Println("Align: ", t_d.Align())
+	//fmt.Println("Len: ", t_d.Len()) //返回array类型的长度, 否则panic
+	if t_d.Kind() == reflect.Array || t_d.Kind() == reflect.Chan || t_d.Kind() == reflect.Map || 
+		t_d.Kind() == reflect.Ptr || t_d.Kind() == reflect.Slice {
+		fmt.Println("Elem: ", t_d.Elem()) //回该类型的元素类型，如果该类型的Kind不是Array、Chan、Map、Ptr或Slice，会panic
+	}
+	
+}
+
 func main() {
-  d1 := Data {
-    a: 20,
-    b: "abcdefg",
-    c: true,
-  }
-  
-  d2 := Data {
-    a: 100,
-    b: "ABCDEFG",
-    c: false
-  }
-  
-  attr(d1, &d2)
+	d := Data {
+		a : 20,
+		b : "ABsedfg",
+		c : true,
+	}
+
+	attr(d)
 }
