@@ -30,6 +30,10 @@ func attr(d interface{}) {
 	
 	fmt.Println("Value Type: ", v_d.Type())
 	
+	if t_d.Kind() == reflect.Struct {
+		fmt.Println("Num of fields:",t_d.NumField())
+		fmt.Println("Fields[1] : ", t_d.Field(1))
+	}
 }
 
 func main() {
