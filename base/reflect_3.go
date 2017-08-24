@@ -37,6 +37,6 @@ func CopyStruct(src, dst interface{}) {
 
 func main() {
 	d1 := Data {1, "aaaa", true}
-	
-	
+	var d2 Data
+	CopyStruct(&d1, &d2)
 }
