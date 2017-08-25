@@ -39,4 +39,6 @@ func main() {
 	d1 := Data {1, "aaaa", true}
 	var d2 Data
 	CopyStruct(&d1, &d2)
+	
+	// refelct 映射使用
 }
