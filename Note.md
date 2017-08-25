@@ -65,6 +65,6 @@ go list: 列出指定的代码包的信息<br>
 
 参考: http://wiki.jikexueyuan.com/project/go-command-tutorial/
 
-常见错误：
-panic: reflect: reflect.Value.SetXXXt using value obtained using unexported field:
+### 常见错误：
+panic: reflect: reflect.Value.SetXXXt using value obtained using unexported field:<br>
 查看结构体成员的权限(大小写）
