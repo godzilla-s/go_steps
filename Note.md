@@ -72,3 +72,5 @@ panic: reflect: reflect.Value.SetXXXt using value obtained using unexported fiel
 ### 注意
 出于效率方面的考虑，当使用较大的struct时，常常需要使用指针(这里要注意，指针参与gc，值不参与gc且函数调用完就会销毁，因此，对于小的struct，可能使用值会更好)：
 
++ struct{}
+ struct{} 为空结构，不占内存，相比bool，更加节省内存
