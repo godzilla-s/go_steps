@@ -6,9 +6,9 @@ import (
 )
 
 type Data struct {
-  a     int
-  b     string
-  c     bool
+	a     int		`test: a`
+	b     string		`test: b`
+	c     bool		`test: c`
 }
 
 func CopyStruct(src, dst interface{}) {
@@ -28,6 +28,11 @@ func CopyStruct(src, dst interface{}) {
 		return
 	}
 
+	t1 := reflect.TypeOf(src)
+	if t.Kind() == reflect.Struct {
+		fmt.Println(t1.Field(i).Name, t1.Filed(i).Type, t1.Field(i).Type)
+	}
+	
 	for i:=0; i<numSrcFld; i++ {
 		if vdst.Elem().Field(i).CanSet() {
 			vdst.Elem().Field(i).Set(vsrc.Elem().Field(i))
