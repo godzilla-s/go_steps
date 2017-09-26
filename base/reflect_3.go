@@ -40,6 +40,38 @@ func CopyStruct(src, dst interface{}) {
 	}
 }
 
+func Abc(nodes ...interface{}) {
+	for _, node := range nodes {
+		val := reflect.ValueOf(node)
+		ind := reflect.Indirect(val)
+
+		if val.Kind() != reflect.Ptr {
+			fmt.Println("Args Wrong")
+		}
+		fmt.Println(ind)
+		fmt.Println(ind.Type())
+
+		typ := ind.Type()
+		fmt.Println(typ.Kind(), typ.String())
+
+		num := ind.NumField()
+		fmt.Println("num: ", num)
+		for i:=0; i<num; i++ {
+			//fmt.Println(ind.Field(i).Name)
+			//val.Elem().Field(i).CanSet()
+				
+			//fmt.Println(val.Elem().Field(i).CanSet())
+			fv := val.Elem().Field(i)
+			if fv.Type().Kind() == reflect.String {
+				fv.SetString("192.168.1.198")
+			}
+			
+			if fv.Type().Kind() == reflect.Int {
+				fv.SetInt(200)
+			}
+		}
+	}
+}
 func main() {
 	d1 := Data {1, "aaaa", true}
 	var d2 Data
