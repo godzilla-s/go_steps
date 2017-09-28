@@ -72,6 +72,22 @@ func Abc(nodes ...interface{}) {
 		}
 	}
 }
+
+// tag - key:value 间应该没有空格
+type DB_Node struct {
+	Id   int    `tag:"id" default:"auto"`
+	Node string `tag:"node"`
+	Date string `tag:"date"`
+}
+func getstructTag() {
+	var node DB_Node 
+
+	typ := reflect.TypeOf(node)
+
+	fld := typ.Field(0)
+	fmt.Println(fld.Tag.Get("tag"), fld.Tag.Get("default"))
+}
+
 func main() {
 	d1 := Data {1, "aaaa", true}
 	var d2 Data
