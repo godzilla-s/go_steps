@@ -19,3 +19,4 @@ func main() {
     fmt.Println("远程服务返回结果：", reply) 
 
 }
+//http://www.codeweblog.com/%E5%AD%A6%E4%B9%A0go-rpc-%E7%A4%BA%E4%BE%8B/
