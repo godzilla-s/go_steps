@@ -20,4 +20,9 @@ func main() {
 	d := make([]int, 4)
 	copy(d, a)
 	fmt.Println(d)
+
+	var xa [3]byte
+	xb := []byte{97, 98, 99, 100}
+	copy(xa[:], xb[:])  // 全部copy
+	fmt.Println(xa)
 }

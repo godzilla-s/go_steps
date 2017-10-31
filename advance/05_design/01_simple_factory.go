@@ -78,6 +78,7 @@ func (this *OperatorFactory) createOperator(opr string) (Operation) {
 	}
 	return operator
 }
+
 func main() {
 	var fn OperatorFactory
 	oper := fn.createOperator("+")

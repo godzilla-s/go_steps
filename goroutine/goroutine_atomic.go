@@ -17,7 +17,6 @@ func test() {
 	
 	for i:=0; i<50; i++ {
 		go func() {
-
 			for {
 				atomic.AddUint64(&opt, 1)  /* 使opt 自动加1 */
 				runtime.Gosched()
@@ -31,7 +30,6 @@ func test() {
 }
 
 // 互斥锁
-
 func test_mutex() {
 	state := make(map[int]int)
 	var opt uint64 = 0

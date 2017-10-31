@@ -5,6 +5,7 @@ import (
 
 )
 
+// 多态
 type fruit interface {
 	Grow()
 	Harvest()
